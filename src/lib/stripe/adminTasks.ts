@@ -139,9 +139,27 @@ export const manageSubscriptionStateChange = async (
       id: subscriptionId,
       userId: uuid,
       metadata: subscription.metadata,
+      created: subscription.created
+        ? toDateTime(subscription.created).toISOString()
+        : toDateTime(Date.now()).toISOString(),
       // @ts-ignore
       status: subscription.status,
       priceId: subscription.items.data[0].price.id,
+      prices: {
+        active: subscription.items.data[0].price.active,
+        id: subscription.items.data[0].price.id,
+        description: subscription.items.data[0].price.nickname,
+        metadata: subscription.items.data[0].price.metadata,
+        productId: subscription.items.data[0].price.product.toString(),
+        unitAmount: subscription.items.data[0].price.unit_amount,
+        currency: subscription.items.data[0].price.currency,
+        type: subscription.items.data[0].price.type,
+        interval: subscription.items.data[0].price.recurring?.interval ?? null,
+        intervalCount:
+          subscription.items.data[0].price.recurring?.interval_count ?? null,
+        trialPeriodDays:
+          subscription.items.data[0].price.recurring?.trial_period_days ?? null,
+      },
       // @ts-ignore
       quantity: subscription.quantity,
       cancelAtPeriodEnd: subscription.cancel_at_period_end,
