@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import React, { FC } from "react";
 
-interface CypressTrashIconProps {}
-const CypressTrashIcon: FC<CypressTrashIconProps> = () => {
+interface CollabraTrashIconProps {}
+const CollabraTrashIcon: FC<CollabraTrashIconProps> = () => {
   return (
     <svg
       width="24"
@@ -36,4 +36,4 @@ const CypressTrashIcon: FC<CypressTrashIconProps> = () => {
   );
 };
 
-export default CypressTrashIcon;
+export default CollabraTrashIcon;

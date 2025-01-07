@@ -13,7 +13,7 @@ const inter = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Cypress",
+  title: "Collabra",
   description: "Your note sharing partner",
 };
 

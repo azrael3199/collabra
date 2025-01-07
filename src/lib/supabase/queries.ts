@@ -487,8 +487,9 @@ export const restoreFolder = async (folderId: string) => {
 };
 
 export const getActiveProductsWithPrice = async () => {
+  console.log(db.query);
   try {
-    const res = await db.query.products.findMany({
+    const res = await db.query.products?.findMany({
       where: (pro, { eq }) => eq(pro.active, true),
       with: { prices: { where: (pri, { eq }) => eq(pri.active, true) } },
     });

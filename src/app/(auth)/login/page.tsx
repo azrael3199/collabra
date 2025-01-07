@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/form";
 import Link from "next/link";
 import Image from "next/image";
-import Logo from "../../../../public/cypresslogo.svg";
+import Logo from "../../../../public/Collabralogo.svg";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Loader from "@/components/global/Loader";
@@ -55,9 +55,9 @@ const LoginPage = () => {
         className="w-full sm:justify-center sm:w-[400px] space-y-6 flex flex-col"
       >
         <Link href="/" className="w-full flex justify-left items-center">
-          <Image src={Logo} alt="Cypress logo" width={50} height={50} />
+          <Image src={Logo} alt="Collabra logo" width={50} height={50} />
           <span className="font-semibold dark:text-white text-4xl ml-2">
-            cypress.
+            Collabra.
           </span>
         </Link>
         <FormDescription className="text-foreground/60">

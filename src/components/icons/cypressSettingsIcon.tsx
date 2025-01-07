@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import React, { FC } from "react";
 
-interface CypressSettingsIconProps {}
-const CypressSettingsIcon: FC<CypressSettingsIconProps> = () => {
+interface CollabraSettingsIconProps {}
+const CollabraSettingsIcon: FC<CollabraSettingsIconProps> = () => {
   return (
     <svg
       width="24"
@@ -24,4 +24,4 @@ const CypressSettingsIcon: FC<CypressSettingsIconProps> = () => {
   );
 };
 
-export default CypressSettingsIcon;
+export default CollabraSettingsIcon;

@@ -1,21 +1,25 @@
+"use client";
+
 import TitleSection from "@/components/landing-page/title-section";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import React from "react";
 
 import Banner from "../../../public/appBanner.png";
-import Calendar from "../../../public/cal.png";
 import Diamond from "../../../public/icons/diamond.svg";
 import Check from "../../../public/icons/check.svg";
 import { CLIENTS, PRICING_CARDS, PRICING_PLANS, USERS } from "@/lib/constants";
-import { randomUUID } from "crypto";
 import { twMerge } from "tailwind-merge";
 import clsx from "clsx";
 import CustomCard from "@/components/landing-page/custom-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { CardContent, CardDescription, CardTitle } from "@/components/ui/card";
+import { useRouter } from "next/navigation";
+import { v4 } from "uuid";
 
 const HomePage = () => {
+  const router = useRouter();
+
   return (
     <>
       <section className="gap-4 px-4 mt-10 overflow-hidden sm:px-6 sm:flex sm:flex-col md:justify-center md:items-center">
@@ -28,10 +32,10 @@ const HomePage = () => {
             variant="btn-secondary"
             className="w-full rounded-[10px] p-6 text-2xl bg-background"
           >
-            Get Cypress Free
+            Get Collabra Free
           </Button>
         </div>
-        <div className="md:mt-[-90px] sm:w-full w-[750px] flex justify-center items-center mt-[-40px] relative sm:ml-0 ml-[-50px]">
+        <div className="lg:max-w-[1150px] flex justify-center items-center mt-[50px] relative sm:ml-0 md:ml-[-50px]">
           <Image src={Banner} alt="Application Banner" />
           <div className="bottom-0 top-[50%] bg-gradient-to-t dark:from-background left-0 right-0 absolute z-10"></div>
         </div>
@@ -39,7 +43,7 @@ const HomePage = () => {
       <section className="relative">
         <div className="overflow-hidden flex after:content[''] after:dark:from-brand-dark after:to-transparent after:from-background after:bg-gradient-to-l after:right-0 after:bottom-0 after:top-0 after:w-20 after:z-10 after:absolute before:content[''] before:dark:from-brand-dark before:to-transparent before:from-background before:bg-gradient-to-r before:left-0 before:top-0 before:bottom-0 before:w-20 before:absolute before:z-10">
           {[...Array(2)].map((arr) => (
-            <div key={randomUUID()} className="flex flex-nowrap animate-slide">
+            <div key={v4()} className="flex flex-nowrap animate-slide">
               {CLIENTS.map((client) => (
                 <div
                   key={client.alt}
@@ -57,18 +61,7 @@ const HomePage = () => {
           ))}
         </div>
       </section>
-      <section className="px-4 sm:px-6 flex justify-center items-center flex-col">
-        <div className="w-[30%] blur-[120px] rounded-full h-32 absolute bg-brand-primaryPurple/50 -z-10 top-22" />
-        <TitleSection
-          title="Keep track of your meetings all in one place"
-          subheading="Capture your ideas, thoughts, and meeting notes in a structured and organized manner"
-          pill="Features"
-        />
-        <div className="mt-10 max-w-[450px] flex justify-center items-center relative sm:ml-0 rounded-2xl border-8 border-washed-purple-300 border-opacity-10">
-          <Image src={Calendar} alt="Banner" className="rounded-2xl" />
-        </div>
-      </section>
-      <section className="relative">
+      <section className="relative mt-10" id="testimonials">
         <div className="w-full blur-[120px] rounded-full h-32 absolute bg-brand-primaryPurple/50 -z-10 top-56" />
         <div className="mt-20 px-4 sm:px-6 flex flex-col overflow-x-hidden overflow-visible">
           <TitleSection
@@ -78,7 +71,7 @@ const HomePage = () => {
           />
           {[...Array(2)].map((arr, index) => (
             <div
-              key={randomUUID()}
+              key={v4()}
               className={twMerge(
                 clsx("mt-10 flex flex-nowrap gap-6 self-start", {
                   "flex-row-reverse": index === 1,
@@ -120,7 +113,7 @@ const HomePage = () => {
           ))}
         </div>
       </section>
-      <section className="mt-20 px-4 sm:px-6 py-4">
+      <section className="mt-20 px-4 sm:px-6 py-4" id="pricing">
         <TitleSection
           title="The Perfect Plan for You"
           subheading="Experience all the benefits of our platform. Select a plan from the below"
@@ -164,7 +157,10 @@ const HomePage = () => {
                 </ul>
               }
               cardContent={
-                <CardContent className="p-0">
+                <CardContent
+                  className="p-0"
+                  onClick={() => router.push("/login")}
+                >
                   <span className="font-normal text-2xl">${card.price}</span>
                   {+card.price > 0 ? (
                     <span className="dark:text-washed-purple-800 ml-1">

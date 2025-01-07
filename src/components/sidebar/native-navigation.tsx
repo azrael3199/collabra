@@ -1,9 +1,9 @@
 import Link from "next/link";
 import React from "react";
 import { twMerge } from "tailwind-merge";
-import CypressHomeIcon from "../icons/cypressHomeIcon";
-import CypressSettingsIcon from "../icons/cypressSettingsIcon";
-import CypressTrashIcon from "../icons/cypressTrashIcon";
+import CollabraHomeIcon from "../icons/cypressHomeIcon";
+import CollabraSettingsIcon from "../icons/cypressSettingsIcon";
+import CollabraTrashIcon from "../icons/cypressTrashIcon";
 import Settings from "../settings/settings";
 import Trash from "../trash/trash";
 
@@ -24,19 +24,19 @@ const NativeNavigation: React.FC<NativeNavigationProps> = ({
             className="group/native flex text-Neutrals/neutrals-7 transition-all gap-2"
             href={`/dashboard/${myWorkspaceId}`}
           >
-            <CypressHomeIcon />
+            <CollabraHomeIcon />
             <span>My Workspace</span>
           </Link>
         </li>
         <Settings>
           <li className="group/native flex text-Neutrals/neutrals-7 transition-all gap-2 cursor-pointer">
-            <CypressSettingsIcon />
+            <CollabraSettingsIcon />
             <span>Settings</span>
           </li>
         </Settings>
         <Trash>
           <li className="group/native flex text-Neutrals/neutrals-7 transition-all gap-2 cursor-pointer">
-            <CypressTrashIcon />
+            <CollabraTrashIcon />
             <span>Trash</span>
           </li>
         </Trash>

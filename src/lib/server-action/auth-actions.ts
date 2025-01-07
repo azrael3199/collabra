@@ -26,7 +26,7 @@ export async function actionSignUpUser({
   cookies().getAll();
   const supabase = createRouteHandlerClient({ cookies });
   const { data } = await supabase
-    .from("profiles")
+    .from("users")
     .select("*")
     .eq("email", email);
 

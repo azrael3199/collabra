@@ -19,7 +19,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import React, { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import Logo from "../../../../public/cypresslogo.svg";
+import Logo from "../../../../public/Collabralogo.svg";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { MailCheck } from "lucide-react";
 import { FormSchema } from "@/lib/types";
@@ -97,9 +97,9 @@ const Signup = () => {
         className="w-full sm:justify-center sm:w-[400px] space-y-6 flex flex-col"
       >
         <Link href="/" className="w-full flex justify-left items-center">
-          <Image src={Logo} alt="Cypress logo" width={50} height={50} />
+          <Image src={Logo} alt="Collabra logo" width={50} height={50} />
           <span className="font-semibold dark:text-white text-4xl ml-2">
-            cypress.
+            Collabra.
           </span>
         </Link>
         <FormDescription className="text-foreground/60">

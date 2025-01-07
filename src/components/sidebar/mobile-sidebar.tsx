@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import CypressPageIcon from "../icons/cypressPageIcon";
+import CollabraPageIcon from "../icons/cypressPageIcon";
 import { Menu } from "lucide-react";
 import clsx from "clsx";
 
@@ -17,7 +17,7 @@ export const nativaNavigations = [
   {
     title: "Pages",
     id: "pages",
-    customIcon: CypressPageIcon,
+    customIcon: CollabraPageIcon,
   },
 ];
 

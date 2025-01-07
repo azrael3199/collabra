@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import Logo from "../../../public/cypresslogo.svg";
+import Logo from "../../../public/Collabralogo.svg";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -70,12 +70,12 @@ const Header = () => {
   return (
     <header className="p-4 flex justify-center items-center">
       <Link href={"/"} className="w-full justify-left items-center flex gap-2">
-        <Image src={Logo} alt="Cypress Logo" width={30} height={30} />
-        <span className="text-xl font-semibold dark:text-white">cypress.</span>
+        <Image src={Logo} alt="Collabra Logo" width={30} height={30} />
+        <span className="text-xl font-semibold dark:text-white">Collabra.</span>
       </Link>
       <NavigationMenu className="hidden md:block">
         <NavigationMenuList className="gap-6">
-          <NavigationMenuItem>
+          {/* <NavigationMenuItem>
             <NavigationMenuTrigger
               onClick={() => setPath("#resources")}
               className={cn({
@@ -105,7 +105,7 @@ const Header = () => {
                 </ListItem>
               </ul>
             </NavigationMenuContent>
-          </NavigationMenuItem>
+          </NavigationMenuItem> */}
           <NavigationMenuItem>
             <NavigationMenuTrigger
               onClick={() => setPath("#pricing")}
@@ -120,10 +120,10 @@ const Header = () => {
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-3 p-4 md:grid-row-2">
-                <ListItem href="#" title="Pro Plan">
+                <ListItem href="#pricing" title="Pro Plan">
                   Unlock full power with collaboration.
                 </ListItem>
-                <ListItem href="#" title="Free Plan">
+                <ListItem href="#pricing" title="Free Plan">
                   Great for teams just starting out
                 </ListItem>
               </ul>
@@ -144,15 +144,20 @@ const Header = () => {
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
-          <NavigationMenuItem>
+          <NavigationMenuItem onClick={() => setPath("#testimonials")}>
             {/* <Link href="#"> */}
             <NavigationMenuLink
-              className={cn(navigationMenuTriggerStyle(), {
-                "dark:text-white": path === "#testimonials",
-                "dark:text-white/40": path !== "#testimonials",
-                "font-normal": true,
-                "text-xl": true,
-              })}
+              href="#testimonials"
+              className={cn(
+                navigationMenuTriggerStyle(),
+                {
+                  "dark:text-white": path === "#testimonials",
+                  "dark:text-white/40": path !== "#testimonials",
+                  "font-normal": true,
+                  "text-xl": true,
+                },
+                "hover:cursor-pointer"
+              )}
             >
               Testimonials
             </NavigationMenuLink>

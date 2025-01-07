@@ -51,7 +51,7 @@ import {
   AlertDialogTitle,
 } from "../ui/alert-dialog";
 import { useSupabaseUser } from "@/lib/providers/supabase-user-provider";
-import CypressProfileIcon from "../icons/cypressProfileIcon";
+import CollabraProfileIcon from "../icons/cypressProfileIcon";
 import LogoutButton from "../global/logout-button";
 import Link from "next/link";
 import { useSubscriptionModal } from "@/lib/providers/subscription-modal-provider";
@@ -471,7 +471,7 @@ const SettingsForm = () => {
               <Avatar>
                 <AvatarImage src={avatarUrl} />
                 <AvatarFallback>
-                  <CypressProfileIcon />
+                  <CollabraProfileIcon />
                 </AvatarFallback>
               </Avatar>
               <div className="flex flex-col ml-6">
