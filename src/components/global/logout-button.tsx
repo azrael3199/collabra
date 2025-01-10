@@ -3,6 +3,7 @@ import React from "react";
 import { Button } from "../ui/button";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useToast } from "../ui/use-toast";
+import { useRouter } from "next/navigation";
 
 interface LogoutButtonProps {
   children: React.ReactNode;
@@ -27,6 +28,7 @@ const LogoutButton: React.FC<LogoutButtonProps> = ({
   const supabase = createClientComponentClient();
 
   const { toast } = useToast();
+  const router = useRouter();
 
   const logoutUser = async () => {
     const { error } = await supabase.auth.signOut();
@@ -37,6 +39,7 @@ const LogoutButton: React.FC<LogoutButtonProps> = ({
         description: `Could not logout user: ${error}`,
       });
     }
+    router.replace("/login");
   };
 
   return (
